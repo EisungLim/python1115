@@ -44,6 +44,18 @@ def union(*ar):
     return result
 
 
-#호출 
+#호출(중단점, Break Point) 
 print( union ("HAM","EGG"))
 print( union ("HAM","EGG","SPAM"))
+
+#정의되지 않은 인자(필수 입력과 옵션 입력이 있는 경우)
+def userURIBuilder(server, port, **user):
+    strURL = "http://" + server + ":"  + port + "/?"
+    for key in user.keys():
+        strURL += key + "=" + user[key] + "&"
+    return strURL
+
+#호출 
+print ( userURIBuilder ("naver.com", "80", id="kim", passwd="1234"))
+print ( userURIBuilder ("naver.com", "80", id="kim", passwd="1234",
+    name="mike"))
