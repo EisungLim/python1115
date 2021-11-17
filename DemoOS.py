@@ -29,3 +29,4 @@ os.chdir("c:\\work")
 for item in glob.glob("*.*"):
     print(item)
 
+
