@@ -5,7 +5,7 @@ import sqlite3
 #연결객체 리턴받기(임시로 메모리 작업)
 # con = sqlite3.connect(":memory:")
 # 영구적으로 파일에 남기기 
-con = sqlite3.connect("sample.db")
+con = sqlite3.connect("c:\\work\\sample2.db")
 
 #실제 구문을 실행한 커서 객체
 cur = con.cursor()
@@ -23,19 +23,13 @@ cur.executemany("insert into PhoneBook values (?, ?);", datalist)
 
 #데이터 조회(Cursor클래스: Command + ResultSet)
 cur.execute("select * from PhoneBook;")
-# for row in cur:
-#     print(row)
-print("---fetchone()---")
-print( cur.fetchone())
-print("---fetchmany(2)---")
-print( cur.fetchmany(2))
-print("---fetchall()---")
-cur.execute("select * from PhoneBook;")
-print( cur.fetchall())
+for row in cur:
+    print(row)
 
 #지금상태는 전부 롤백(취소)
 #입력, 수정, 삭제작업을 완료한 경우
 con.commit() 
+con.close()
 
 
 
