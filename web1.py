@@ -25,3 +25,5 @@ for tag in soup.find_all("p"):
     title = tag.text.strip()
     title = title.replace("\t", "")
     print(title)
+
+
