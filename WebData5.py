@@ -74,6 +74,7 @@ class Form(QMainWindow):
             f.close()
 
     def doubleClicked(self):
+        #주소가 숨겨져 있다.
         url = self.tableWidget.item(self.tableWidget.currentRow(), 1).text()
         webbrowser.open(url) 
 
